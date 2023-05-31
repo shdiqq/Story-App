@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title><%= htmlWebpackPlugin.options.title %> | Money Tracker App</title>
+  </head>
+  <body>
+    <header>
+      <nav-app brandName="<%= brandName %>"></nav-app>
+    </header>
+
+    <main>
+      <div class="main-content">
+        <div class="container py-5">
+          <div class="d-flex justify-content-between align-items-center mt-5">
+            <h1>List Story</h1>
+            <button-link
+              classes="btn-primary text-capitalize"
+              to="/transactions/add.html"
+              icon="bi-plus-lg"
+              content="Tambah Story"
+            ></button-link>
+          </div>
+
+          <!-- Records -->
+          <div class="d-flex justify-content-between flex-wrap p-3" id="recordsCard"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="main-footer bg-dark">
+        <div class="container px-3 py-4">
+          <footer-app></footer-app>
+        </div>
+      </div>
+    </footer>
+
+    <modal-transaction
+      title="Rincian Story"
+      class="modal fade"
+      id="recordDetailModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+    ></modal-transaction>
+  </body>
+</html>

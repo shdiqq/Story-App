@@ -1,0 +1,82 @@
+// Using built-in modules
+@use 'sass:map';
+
+// Custom modules
+@use '../vendors-extensions/bootstrap/components/buttons' as btn;
+@use '../vendors-extensions/bootstrap/components/cards' as card;
+@use '../vendors-extensions/bootstrap/components/modals' as modal;
+@use '../vendors-extensions/bootstrap/components/close' as btn-close;
+@use '../vendors-extensions/bootstrap/components/forms' as input-btn;
+@use '../vendors-extensions/bootstrap/variables/colors' as color;
+
+// ==================================================
+// Bootstrap
+// ==================================================
+
+//
+// Functions Bootstrap
+//
+@import '~bootstrap/scss/functions';
+
+//
+// Variables Bootstrap
+//
+@import '~bootstrap/scss/variables';
+
+// Menerapkan/override variables Bootstrap apa pun di sini
+$theme-colors: map.deep-merge($theme-colors, color.$theme-colors);
+
+// Buttons
+$btn-padding-x: btn.$padding-x;
+$btn-padding-y: btn.$padding-y;
+
+// Cards
+$card-border-radius: card.$border-radius;
+$card-inner-border-radius: card.$inner-border-radius;
+
+// Modals
+$modal-content-border-color : modal.$content-border-color;
+$modal-backdrop-opacity     : modal.$backdrop-opacity;
+
+// Close
+$btn-close-opacity  : btn-close.$opacity;
+$btn-close-hover-opacity  : btn-close.$hover-opacity;
+
+// Forms
+$input-btn-padding-y : input-btn.$padding-y;
+$input-btn-padding-x : input-btn.$padding-x;
+
+//
+// Konfigurasi Bootstrap
+//
+@import '~bootstrap/scss/maps';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/reboot';
+
+//
+// Layouts dan components
+//
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/images';
+@import '~bootstrap/scss/containers';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/helpers';
+
+// Komponen-Komponen
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/transitions';
+@import '~bootstrap/scss/card';
+@import '~bootstrap/scss/close';
+@import '~bootstrap/scss/modal'; // Requires transitions
+
+//
+// Utilities API untuk menghasilkan utility classes
+//
+@import '~bootstrap/scss/utilities/api';
+
+//
+// Tambahkan custom code di sini
+//

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<file target-language="fr" source-language="id" original="lit-localize-inputs" datatype="plaintext">
+  <body>
+    <trans-unit id="sef49b2c68fd1e332">
+      <source>Nama</source>
+      <target>Nom</target>
+    </trans-unit>
+    <trans-unit id="s0832aaca8cfaacf2">
+      <source>Tanggal dibuat</source>
+      <target>Date de création</target>
+    </trans-unit>
+    <trans-unit id="s772ce5f935d58e37">
+      <source>Deskripsi</source>
+      <target>Description</target>
+    </trans-unit>
+    <trans-unit id="s749c72374d54863f">
+      <source>Tutup</source>
+      <target>Fermé</target>
+    </trans-unit>
+    <trans-unit id="sf9a862bfd829397e">
+      <source>Dasbor</source>
+      <target>Tableau de bord</target>
+    </trans-unit>
+    <trans-unit id="sfae357d460dcc835">
+      <source>Tambah Story</source>
+      <target>Ajouter des histoires</target>
+    </trans-unit>
+    <trans-unit id="sdf27102dcea9ece7">
+      <source>Dibuat oleh Shadiq Harwiz</source>
+      <target>Réalisé par Sadiq Harwiz</target>
+    </trans-unit>
+  </body>
+</file>
+</xliff>
