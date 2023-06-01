@@ -1,0 +1,19 @@
+@use '../abstracts/mixins' as mix;
+
+footer .footer-container {
+  @include mix.padding;
+  background-color: #2d3338;
+
+  footer-app {
+    locale-picker select {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .copyright p {
+      @include mix.cover-center-text;
+      color: white;
+    }
+  }
+}

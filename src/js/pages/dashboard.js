@@ -8,7 +8,7 @@ const Dashboard = {
     const fetchRecords = await fetch('/data/DATA.json');
     const responseRecords = await fetchRecords.json();
     this._listStory = responseRecords.listStory;
-    this._populateTransactionsRecordToCard(this._listStory);
+    this._populateStoryRecordToCard(this._listStory);
   },
 
   _initialListener() {
@@ -22,11 +22,11 @@ const Dashboard = {
         return item.id == button.dataset.recordId;
       });
 
-      this._populateDetailTransactionToModal(dataRecord);
+      this._populateDetailStoryToModal(dataRecord);
     });
   },
 
-  _populateTransactionsRecordToCard(listStory = null) {
+  _populateStoryRecordToCard(listStory = null) {
     if (!(typeof listStory === 'object')) {
       throw new Error(`Parameter listStory should be an object. The value is ${listStory}`);
     }
@@ -48,7 +48,7 @@ const Dashboard = {
     });
   },
 
-  _populateDetailTransactionToModal(storyRecord) {
+  _populateDetailStoryToModal(storyRecord) {
     if (!(typeof storyRecord === 'object')) {
       throw new Error(`Parameter storyRecord should be an object. The value is ${storyRecord}`);
     }

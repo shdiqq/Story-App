@@ -2,7 +2,7 @@ import LitWithoutShadowDom from './base/LitWithoutShadowDom';
 import { html } from 'lit';
 import { msg, updateWhenLocaleChanges } from '@lit/localize';
 
-class ModalTransaction extends LitWithoutShadowDom {
+class ModalDetailStory extends LitWithoutShadowDom {
   static properties = {
     title: { type: String, reflect: true },
   };
@@ -18,7 +18,7 @@ class ModalTransaction extends LitWithoutShadowDom {
         <div class="modal-content">
           <div class="modal-header bg-gray">
             <h1 class="modal-title fs-2" id="staticBackdropLabel">${this.title}</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"> </button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
             <div class="mb-3">
@@ -49,4 +49,4 @@ class ModalTransaction extends LitWithoutShadowDom {
   }
 }
 
-customElements.define('modal-transaction', ModalTransaction);
+customElements.define('modal-detail-story', ModalDetailStory);

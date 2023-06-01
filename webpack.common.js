@@ -58,8 +58,8 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'Add Records',
-      filename: 'transactions/add.html',
-      template: path.resolve(__dirname, 'src/views/transactions/add.html'),
+      filename: 'story/add.html',
+      template: path.resolve(__dirname, 'src/views/story/add.html'),
       ...htmlWebpackPluginConfig,
     }),
 

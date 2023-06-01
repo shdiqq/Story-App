@@ -17,7 +17,7 @@
             <h1>List Story</h1>
             <button-link
               classes="btn-primary text-capitalize"
-              to="/transactions/add.html"
+              to="/story/add.html"
               icon="bi-plus-lg"
               content="Tambah Story"
             ></button-link>
@@ -30,20 +30,18 @@
     </main>
 
     <footer>
-      <div class="main-footer bg-dark">
-        <div class="container px-3 py-4">
-          <footer-app></footer-app>
-        </div>
+      <div class="footer-container">
+        <footer-app></footer-app>
       </div>
     </footer>
 
-    <modal-transaction
+    <modal-detail-story
       title="Rincian Story"
       class="modal fade"
       id="recordDetailModal"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
       tabindex="-1"
-    ></modal-transaction>
+    ></modal-detail-story>
   </body>
 </html>

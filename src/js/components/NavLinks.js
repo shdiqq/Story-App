@@ -65,7 +65,7 @@ class NavLinks extends LitElement {
       <ul>
         <button @click=${() => this._hideNavLink()} aria-label="navigation-menu-close">X</button>
         <nav-link content="${msg(`Dasbor`)}" to="/"></nav-link>
-        <nav-link content="${msg(`Tambah Story`)}" to="/transactions/add.html"></nav-link>
+        <nav-link content="${msg(`Tambah Story`)}" to="/story/add.html"></nav-link>
       </ul>
     `;
   }
