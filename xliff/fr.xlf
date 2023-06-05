@@ -18,17 +18,25 @@
       <source>Tutup</source>
       <target>Fermé</target>
     </trans-unit>
-    <trans-unit id="sf9a862bfd829397e">
-      <source>Dasbor</source>
-      <target>Tableau de bord</target>
-    </trans-unit>
-    <trans-unit id="sfae357d460dcc835">
-      <source>Tambah Story</source>
-      <target>Ajouter des histoires</target>
-    </trans-unit>
     <trans-unit id="sdf27102dcea9ece7">
       <source>Dibuat oleh Shadiq Harwiz</source>
       <target>Réalisé par Sadiq Harwiz</target>
+    </trans-unit>
+    <trans-unit id="sf9a862bfd829397e">
+      <source>Dasbor</source>
+      <target>Fermé</target>
+    </trans-unit>
+    <trans-unit id="sfae357d460dcc835">
+      <source>Tambah Story</source>
+      <target>histoire ajoutée</target>
+    </trans-unit>
+    <trans-unit id="s45dab30b4d2d3c14">
+      <source>Masuk</source>
+      <target>Connexion</target>
+    </trans-unit>
+    <trans-unit id="s229fb4df9ecf3ed1">
+      <source>Keluar</source>
+      <target>Se déconnecter</target>
     </trans-unit>
   </body>
 </file>

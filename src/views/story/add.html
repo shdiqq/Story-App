@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title><%= htmlWebpackPlugin.options.title %> | Money Tracker App</title>
+    <title><%= htmlWebpackPlugin.options.title %> | Story App</title>
   </head>
   <body>
     <header>
@@ -11,21 +11,12 @@
     </header>
 
     <main>
+      <loading-spinner></loading-spinner>
       <div class="main-content">
         <div class="container py-5">
           <h1 class="mt-5 mb-3">Tambah Story</h1>
 
           <form class="row g-3" id="addRecordForm" novalidate>
-            <div class="col-12">
-              <label for="validationCustomRecordName" class="form-label">Nama</label>
-              <input-with-validation
-                type="text"
-                inputId="validationCustomRecordName"
-                invalidFeedbackMessage="Wajib diisi"
-                required
-              ></input-with-validation>
-            </div>
-
             <div class="col-12">
               <label for="validationCustomNotes" class="form-label">Deskripsi</label>
               <textarea-with-validation
@@ -53,10 +44,8 @@
     </main>
 
     <footer>
-      <div class="main-footer bg-dark">
-        <div class="container px-3 py-4">
-          <footer-app></footer-app>
-        </div>
+      <div class="footer-container">
+        <footer-app></footer-app>
       </div>
     </footer>
   </body>

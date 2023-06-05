@@ -22,7 +22,12 @@ class CardDashboard extends LitWithoutShadowDom {
   render() {
     return html`
       <div class="card m-3" style="width: 24rem;">
-        <img class="card-img-top" src="${this.photoUrl}" alt="Card Story Image - ${this.name}" />
+        <img
+          class="card-img-top"
+          src="${this.photoUrl}"
+          alt="Card Story Image - ${this.name}"
+          style="width: 100%;height: 15rem;object-fit: cover;"
+        />
         <div class="card-body">
           <h1 class="card-title fs-2">${this.name}<br /></h1>
           <p class="card-text fs-5">${this.description}</p>

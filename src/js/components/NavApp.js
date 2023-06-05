@@ -71,7 +71,7 @@ class NavApp extends LitElement {
           </div>
           <div class="container-right">
             <nav-links></nav-links>
-          </dib>
+          </div>
         </div>
       </nav>
     `;
@@ -79,7 +79,6 @@ class NavApp extends LitElement {
 
   _goToDashboard() {
     window.location.href = '/';
-    document.querySelector;
   }
 }
 

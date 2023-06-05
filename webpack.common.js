@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const htmlWebpackPluginConfig = {
@@ -57,19 +56,24 @@ module.exports = {
       ...htmlWebpackPluginConfig,
     }),
     new HtmlWebpackPlugin({
-      title: 'Add Records',
+      title: 'Add Stories',
       filename: 'story/add.html',
       template: path.resolve(__dirname, 'src/views/story/add.html'),
       ...htmlWebpackPluginConfig,
     }),
 
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, 'src/public/'),
-          to: path.resolve(__dirname, 'dist/'),
-        },
-      ],
+    // Auth pages
+    new HtmlWebpackPlugin({
+      title: 'Login',
+      filename: 'auth/login.html',
+      template: path.resolve(__dirname, 'src/views/auth/login.html'),
+      ...htmlWebpackPluginConfig,
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Register',
+      filename: 'auth/register.html',
+      template: path.resolve(__dirname, 'src/views/auth/register.html'),
+      ...htmlWebpackPluginConfig,
     }),
     new CleanWebpackPlugin(),
   ],

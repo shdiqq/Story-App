@@ -1,14 +1,26 @@
+import CheckUserAuth from './auth/check-user-auth';
+import Stories from '../network/stories';
+
 const Dashboard = {
   async init() {
+    CheckUserAuth.checkLoginState();
+
     await this._initialData();
     this._initialListener();
   },
 
   async _initialData() {
-    const fetchRecords = await fetch('/data/DATA.json');
-    const responseRecords = await fetchRecords.json();
-    this._listStory = responseRecords.listStory;
-    this._populateStoryRecordToCard(this._listStory);
+    const preloaderWrapper = document.getElementById('preloaderWrapper');
+    preloaderWrapper.style.visibility = 'visible';
+    try {
+      const response = await Stories.getAllStories();
+      const responseRecords = response.data;
+      this._listStory = responseRecords.listStory;
+      this._populateStoryRecordToCard(this._listStory);
+      preloaderWrapper.style.visibility = 'hidden';
+    } catch (error) {
+      console.error(error);
+    }
   },
 
   _initialListener() {
@@ -63,7 +75,7 @@ const Dashboard = {
     nameDetailRecord.textContent = storyRecord.name;
     var date = new Date(storyRecord.createdAt);
     date.toISOString().substring(0, 10);
-    createdAtDetailRecord.textContent = date.toString().slice(0, 24);
+    createdAtDetailRecord.textContent = date.toString().slice(3, 24);
     descriptionDetailRecord.textContent = storyRecord.description || '-';
   },
 

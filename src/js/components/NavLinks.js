@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { msg, updateWhenLocaleChanges } from '@lit/localize';
+import CheckUserAuth from '../pages/auth/check-user-auth';
 
 class NavLinks extends LitElement {
   static styles = css`
@@ -48,7 +49,8 @@ class NavLinks extends LitElement {
         display: block;
       }
 
-      ul nav-link {
+      ul nav-link,
+      ul nav-link-auth {
         width: 100%;
       }
     }
@@ -60,14 +62,27 @@ class NavLinks extends LitElement {
   }
 
   render() {
-    return html`
-      <button @click=${() => this._showNavLink()} aria-label="navigation-menu-open">☰</button>
-      <ul>
-        <button @click=${() => this._hideNavLink()} aria-label="navigation-menu-close">X</button>
-        <nav-link content="${msg(`Dasbor`)}" to="/"></nav-link>
-        <nav-link content="${msg(`Tambah Story`)}" to="/story/add.html"></nav-link>
-      </ul>
-    `;
+    if (CheckUserAuth.checkLoginState() === true) {
+      return html`
+        <button @click=${() => this._showNavLink()} aria-label="navigation-menu-open">☰</button>
+        <ul>
+          <button @click=${() => this._hideNavLink()} aria-label="navigation-menu-close">X</button>
+          <nav-link content="${msg(`Dasbor`)}" to="/"></nav-link>
+          <nav-link content="${msg(`Tambah Story`)}" to="/story/add.html"></nav-link>
+          <nav-link-auth></nav-link-auth>
+        </ul>
+      `;
+    } else {
+      return html`
+        <button @click=${() => this._showNavLink()} aria-label="navigation-menu-open">☰</button>
+        <ul>
+          <button @click=${() => this._hideNavLink()} aria-label="navigation-menu-close">X</button>
+          <nav-link content="${msg(`Dasbor`)}" to="/"></nav-link>
+          <nav-link content="${msg(`Tambah Story`)}" to="/story/add.html"></nav-link>
+          <nav-link content="${msg(`Masuk`)}" to="/auth/login.html"></nav-link>
+        </ul>
+      `;
+    }
   }
 
   _showNavLink() {

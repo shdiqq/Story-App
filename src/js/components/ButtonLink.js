@@ -1,5 +1,4 @@
 import { html } from 'lit';
-import { msg, updateWhenLocaleChanges } from '@lit/localize';
 import LitWithoutShadowDom from './base/LitWithoutShadowDom';
 
 class ButtonLink extends LitWithoutShadowDom {
@@ -12,7 +11,6 @@ class ButtonLink extends LitWithoutShadowDom {
 
   constructor() {
     super();
-    updateWhenLocaleChanges(this);
     this._checkAvailabilityProperty();
 
     this.classes = '';
@@ -30,9 +28,7 @@ class ButtonLink extends LitWithoutShadowDom {
 
   render() {
     return html`
-      <a class="btn ${this.classes}" href=${this.to}>
-        ${this._templateIcon()}${msg(this.content)}
-      </a>
+      <a class="btn ${this.classes}" href=${this.to}> ${this._templateIcon()}${this.content} </a>
     `;
   }
 

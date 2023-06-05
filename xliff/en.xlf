@@ -10,10 +10,6 @@
         <source>Tutup</source>
         <target>Close</target>
       </trans-unit>
-      <trans-unit id="sf9a862bfd829397e">
-        <source>Dasbor</source>
-        <target>Dashboard</target>
-      </trans-unit>
       <trans-unit id="s0832aaca8cfaacf2">
         <source>Tanggal dibuat</source>
         <target>Created date</target>
@@ -22,13 +18,25 @@
         <source>Deskripsi</source>
         <target>Description</target>
       </trans-unit>
+      <trans-unit id="sdf27102dcea9ece7">
+        <source>Dibuat oleh Shadiq Harwiz</source>
+        <target>Created by Sadiq Harwiz</target>
+      </trans-unit>
+      <trans-unit id="sf9a862bfd829397e">
+        <source>Dasbor</source>
+        <target>Dashboard</target>
+      </trans-unit>
       <trans-unit id="sfae357d460dcc835">
         <source>Tambah Story</source>
         <target>Add Story</target>
       </trans-unit>
-      <trans-unit id="sdf27102dcea9ece7">
-        <source>Dibuat oleh Shadiq Harwiz</source>
-        <target>Created by Sadiq Harwiz</target>
+      <trans-unit id="s45dab30b4d2d3c14">
+        <source>Masuk</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="s229fb4df9ecf3ed1">
+        <source>Keluar</source>
+        <target>Logout</target>
       </trans-unit>
     </body>
   </file>

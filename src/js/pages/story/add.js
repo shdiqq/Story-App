@@ -1,5 +1,9 @@
+import CheckUserAuth from '../auth/check-user-auth';
+import Stories from '../../network/stories';
+
 const Add = {
   async init() {
+    CheckUserAuth.checkLoginState();
     this._initialListener();
   },
 
@@ -18,29 +22,36 @@ const Add = {
     );
   },
 
-  _sendPost() {
+  async _sendPost() {
+    const preloaderWrapper = document.getElementById('preloaderWrapper');
+    preloaderWrapper.style.visibility = 'visible';
     const formData = this._getFormData();
 
     if (this._validateFormData({ ...formData })) {
       console.log('formData');
       console.log(formData);
 
-      // this._goToDashboardPage();
+      try {
+        const response = await Stories.addNewStory(formData);
+        preloaderWrapper.style.visibility = 'hidden';
+        window.alert('New Stories added successfully');
+
+        this._goToDashboardPage();
+      } catch (error) {
+        console.error(error);
+      }
     }
   },
 
   _getFormData() {
-    const nameInput = document.querySelector('#validationCustomRecordName');
     const descriptionInput = document.querySelector('#validationCustomNotes');
     const evidenceInput = document.querySelector('#validationCustomEvidence');
 
     var date = new Date().toISOString();
 
     return {
-      id: `story-${Math.random().toString(17).substring(2, 17)}`,
-      name: nameInput.value,
       description: descriptionInput.value,
-      photoUrl: evidenceInput.files[0],
+      photo: evidenceInput.files[0],
       createdAt: date,
     };
   },
