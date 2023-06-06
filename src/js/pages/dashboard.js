@@ -17,9 +17,10 @@ const Dashboard = {
       const responseRecords = response.data;
       this._listStory = responseRecords.listStory;
       this._populateStoryRecordToCard(this._listStory);
-      preloaderWrapper.style.visibility = 'hidden';
     } catch (error) {
       console.error(error);
+    } finally {
+      preloaderWrapper.style.visibility = 'hidden';
     }
   },
 

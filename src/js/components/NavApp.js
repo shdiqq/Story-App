@@ -78,7 +78,7 @@ class NavApp extends LitElement {
   }
 
   _goToDashboard() {
-    window.location.href = '/';
+    window.location.href = '/index.html';
   }
 }
 

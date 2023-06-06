@@ -7,7 +7,9 @@ class ShowPassword extends LitWithoutShadowDom {
   }
 
   render() {
-    return html` <input type="checkbox" @click=${() => this._showPassword()} /> Show Password `;
+    return html` 
+    <input class="form-check-input" type="checkbox"  @click=${() => this._showPassword()}> Show Password 
+    `;
   }
 
   _showPassword() {

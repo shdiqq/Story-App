@@ -31,10 +31,6 @@ const Login = {
     if (this._validateFormData({ ...formData })) {
       const preloaderWrapper = document.getElementById('preloaderWrapper');
       preloaderWrapper.style.visibility = 'visible';
-
-      //console.log('formData');
-      //console.log(formData);
-
       try {
         const response = await Auth.login({
           email: formData.email,
@@ -43,19 +39,22 @@ const Login = {
         if (response.status === 200) {
           Utils.setUserToken(Config.USER_TOKEN_KEY, response.data.loginResult.token);
           Utils.setName(Config.NAME, response.data.loginResult.name);
-          preloaderWrapper.style.visibility = 'hidden';
+
           window.alert('Signed user in detected');
 
           this._goToDashboardPage();
         } else {
-          preloaderWrapper.style.visibility = 'hidden';
-          window.alert(`${response.response.data.message}`);
+          if (formData.password.length <= 8) {
+            window.alert(`Password harus minimal 8 karakter`);
+          } else {
+            window.alert(`${response.response.data.message}`);
+          }
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        preloaderWrapper.style.visibility = 'hidden';
       }
-    } else {
-      window.alert(`Password minimal berisi 8 karakter`);
     }
   },
 
@@ -70,14 +69,15 @@ const Login = {
   },
 
   _validateFormData(formData) {
-    const formDataFiltered = Object.values(formData).filter((item) => item === '');
-    const isPasswordChar8 = formData.password.length >= 8;
+    const formDataFiltered = Object.values(formData).filter(
+      (item) => item === '' || item === undefined || item === null,
+    );
 
-    return formDataFiltered.length === 0 && isPasswordChar8;
+    return formDataFiltered.length === 0;
   },
 
   _goToDashboardPage() {
-    window.location.href = '/';
+    window.location.href = '/index.html';
   },
 };
 

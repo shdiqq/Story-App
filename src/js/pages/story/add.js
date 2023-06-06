@@ -23,22 +23,23 @@ const Add = {
   },
 
   async _sendPost() {
-    const preloaderWrapper = document.getElementById('preloaderWrapper');
-    preloaderWrapper.style.visibility = 'visible';
     const formData = this._getFormData();
-
     if (this._validateFormData({ ...formData })) {
-      console.log('formData');
-      console.log(formData);
-
+      const preloaderWrapper = document.getElementById('preloaderWrapper');
+      preloaderWrapper.style.visibility = 'visible';
       try {
         const response = await Stories.addNewStory(formData);
-        preloaderWrapper.style.visibility = 'hidden';
-        window.alert('New Stories added successfully');
+        if (response.status === 201) {
+          window.alert('New Stories added successfully');
 
-        this._goToDashboardPage();
+          this._goToDashboardPage();
+        } else {
+          window.alert(`${response.response.data.message}`);
+        }
       } catch (error) {
         console.error(error);
+      } finally {
+        preloaderWrapper.style.visibility = 'hidden';
       }
     }
   },
@@ -47,23 +48,22 @@ const Add = {
     const descriptionInput = document.querySelector('#validationCustomNotes');
     const evidenceInput = document.querySelector('#validationCustomEvidence');
 
-    var date = new Date().toISOString();
-
     return {
       description: descriptionInput.value,
       photo: evidenceInput.files[0],
-      createdAt: date,
     };
   },
 
   _validateFormData(formData) {
-    const formDataFiltered = Object.values(formData).filter((item) => item === '');
+    const formDataFiltered = Object.values(formData).filter(
+      (item) => item === '' || item === undefined || item === null,
+    );
 
     return formDataFiltered.length === 0;
   },
 
   _goToDashboardPage() {
-    window.location.href = '/';
+    window.location.href = '/index.html';
   },
 };
 

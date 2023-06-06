@@ -11,7 +11,7 @@ const CheckUserAuth = {
 
     if (isUserSignedIn) {
       if (isUserOnAuthPage) {
-        window.location.href = '/';
+        window.location.href = '/index.html';
       } else {
         return isUserSignedIn;
       }

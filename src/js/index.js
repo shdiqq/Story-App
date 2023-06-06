@@ -15,6 +15,8 @@ import * as bootstrap from 'bootstrap';
 
 const routes = {
   '/': Dashboard,
+  '/index.html': Dashboard,
+  
   '/story/add.html': Add,
 
   '/auth/login.html': Login,
@@ -36,5 +38,6 @@ window.addEventListener('DOMContentLoaded', async () => {
   initPages();
 
   const route = detectRoute();
+  console.log(route);
   route.init();
 });

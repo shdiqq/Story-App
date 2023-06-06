@@ -29,10 +29,6 @@ const Register = {
     if (this._validateFormData({ ...formData })) {
       const preloaderWrapper = document.getElementById('preloaderWrapper');
       preloaderWrapper.style.visibility = 'visible';
-
-      //console.log('formData');
-      //console.log(formData);
-
       try {
         const response = await Auth.register({
           name: formData.name,
@@ -40,19 +36,21 @@ const Register = {
           password: formData.password,
         });
         if (response.status === 201) {
-          preloaderWrapper.style.visibility = 'hidden';
           window.alert('Registered a new user');
 
           this._goToLoginPage();
         } else {
-          preloaderWrapper.style.visibility = 'hidden';
-          window.alert(`${response.response.data.message}`);
+          if (formData.password.length <= 8) {
+            window.alert(`Password harus minimal 8 karakter`);
+          } else {
+            window.alert(`${response.response.data.message}`);
+          }
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        preloaderWrapper.style.visibility = 'hidden';
       }
-    } else {
-      window.alert(`Password minimal berisi 8 karakter`);
     }
   },
 
@@ -69,8 +67,9 @@ const Register = {
   },
 
   _validateFormData(formData) {
-    const formDataFiltered = Object.values(formData).filter((item) => item === '');
-    const isPasswordChar8 = formData.password.length <= 8;
+    const formDataFiltered = Object.values(formData).filter(
+      (item) => item === '' || item === undefined || item === null,
+    );
 
     return formDataFiltered.length === 0;
   },
